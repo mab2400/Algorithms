@@ -1,24 +1,20 @@
 # include <stdio.h>
 # include <stdlib.h>
 
-void selectionSort(int a[], int size)
+void print_array(int a[], size_t size)
 {
-
-    printf("Input Array: \n");
-
-    for(int i=0; i<size; i++)
-    {
+    for (size_t i = 0; i < size; ++i) {
         printf("%d\n", a[i]);
     }
+}
 
-    for(int i=0; i<size; i++)
-    {
+void selectionSort(int a[], int size)
+{
+    for (size_t i = 0; i < size; ++i) {
         int minindex = i;
         int min = a[i];
-        for(int j=i; j<size; j++)
-        {
-            if(a[j] < min)
-            {
+        for(int j = i; j < size; ++j) {
+            if(a[j] < min) {
                 min = a[j];
                 minindex = j;
             }
@@ -35,37 +31,26 @@ void selectionSort(int a[], int size)
 
 int main(int argc, char *argv[])
 {
-    int arr[argc-1];
-    int i = 1;
-    char *p;
-    long longvalue;
-    int value;
+    size_t size = argc - 1; // size of array
+    int *arr = malloc(size * sizeof(int)); // heap-allocated array of ints
 
     /* Putting the command line args
      * as ints in the array */
 
-    while(--argc > 0)
-    {
-        longvalue = strtol(argv[i], &p, 10);
-        value = (int) longvalue;
-        arr[i-1] = value;
-        i++;
+    for (size_t i = 0; i < size; ++i) {
+        arr[i] = atoi(argv[i + 1]);
     }
 
-    size_t s2 = sizeof(arr) / sizeof(arr[0]);
-    int size2 = (int) s2;
+    printf("Input Array: \n");
+    print_array(arr, size);
 
     /* Here I will be calling
      * selectionSort() on the array. */
     
-    selectionSort(arr, size2);
+    selectionSort(arr, size);
 
     printf("Sorted Array: \n");
-
-    for(int i=0; i<size2; i++)
-    {
-        printf("%d\n", arr[i]);
-    }
+    print_array(arr, size);
 
     return 0;
 }
