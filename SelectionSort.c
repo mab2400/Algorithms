@@ -3,9 +3,6 @@
 
 void selectionSort(int a[], int size)
 {
-    /* pa now points to the first
-     * element in the array to be 
-     * sorted. */
 
     printf("Input Array: \n");
 
@@ -13,9 +10,6 @@ void selectionSort(int a[], int size)
     {
         printf("%d\n", a[i]);
     }
-
-    int *pa;
-    pa = &a[0];
 
     for(int i=0; i<size; i++)
     {
