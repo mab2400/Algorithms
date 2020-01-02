@@ -1,19 +1,21 @@
 # include <stdio.h>
+# include <stdlib.h>
 
-int * selectionSort(int a[])
+void selectionSort(int a[], int size)
 {
-    /* This method returns a pointer
-     * to the first element
-     * in the sorted array.*/
-
     /* pa now points to the first
      * element in the array to be 
      * sorted. */
 
+    printf("Input Array: \n");
+
+    for(int i=0; i<size; i++)
+    {
+        printf("%d\n", a[i]);
+    }
+
     int *pa;
     pa = &a[0];
-
-    int size = sizeof(a) / sizeof(a[0]);
 
     for(int i=0; i<size; i++)
     {
@@ -35,33 +37,40 @@ int * selectionSort(int a[])
         a[i] = temp;
     }
 
-    return pa;
 }
 
 int main(int argc, char *argv[])
 {
     int arr[argc-1];
+    int i = 1;
+    char *p;
+    long longvalue;
+    int value;
 
     /* Putting the command line args
      * as ints in the array */
 
     while(--argc > 0)
     {
-        int value = *++argv - '0';
-        int i = 0;
-        arr[i++] = value;
+        longvalue = strtol(argv[i], &p, 10);
+        value = (int) longvalue;
+        arr[i-1] = value;
+        i++;
     }
+
+    size_t s2 = sizeof(arr) / sizeof(arr[0]);
+    int size2 = (int) s2;
 
     /* Here I will be calling
      * selectionSort() on the array. */
     
-    int *result = selectionSort(arr);
+    selectionSort(arr, size2);
 
-    int size = sizeof(arr) / sizeof(arr[0]);
+    printf("Sorted Array: \n");
 
-    for(int i=0; i<size; i++)
+    for(int i=0; i<size2; i++)
     {
-        printf("%d\n", *result++);
+        printf("%d\n", arr[i]);
     }
 
     return 0;
