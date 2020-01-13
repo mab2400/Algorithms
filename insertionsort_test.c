@@ -13,14 +13,6 @@ is greater than 3.
 1 2 3 4 9 | 7  
 */
 
-void print_array(int a[], size_t size)
-{
-    for(size_t i = 0; i < size; ++i)
-    {
-        printf("%d\n", a[i]);
-    }
-}
-
 int main(int argc, char *argv[])
 {
     size_t size = argc - 1; // size of array
