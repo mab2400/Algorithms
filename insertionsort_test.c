@@ -21,33 +21,6 @@ void print_array(int a[], size_t size)
     }
 }
 
-void insertionSort(int a[], int size)
-{
-    /* 
-        i moves forward in the unsorted portion
-        j moves backward in the sorted portion 
-        (j starts out in the same position as i)
-        use j to repeatedly swap backward.
-        use i to pick the next element to swap down. */
-    
-    for(size_t i = 0; i < size; ++i)
-    {
-        /* i delineates the border between
-        sorted and unsorted portions. */
-        
-        for(size_t j=i; j>=1; --j)
-        {
-            if(a[j] < a[j-1])
-            {
-                /* Swapping a[j] and a[j-1] */
-                int temp = a[j];
-                a[j] = a[j-1];
-                a[j-1] = temp;
-            }
-        }
-    }
-}
-
 int main(int argc, char *argv[])
 {
     size_t size = argc - 1; // size of array
