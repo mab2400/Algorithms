@@ -1,33 +1,6 @@
 # include <stdio.h>
 # include <stdlib.h>
-
-void print_array(int a[], size_t size)
-{
-    for (size_t i = 0; i < size; ++i) {
-        printf("%d\n", a[i]);
-    }
-}
-
-void selectionSort(int a[], int size)
-{
-    for (size_t i = 0; i < size; ++i) {
-        int minindex = i;
-        int min = a[i];
-        for(int j = i; j < size; ++j) {
-            if(a[j] < min) {
-                min = a[j];
-                minindex = j;
-            }
-        }
-
-        /* Swapping min and a[i] */
-
-        int temp = a[minindex];
-        a[minindex] = a[i];
-        a[i] = temp;
-    }
-
-}
+# include "sort.h"
 
 int main(int argc, char *argv[])
 {
