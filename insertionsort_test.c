@@ -1,5 +1,6 @@
 # include <stdio.h>
 # include <stdlib.h>
+# include "sort.h"
 
 /* Insertion Sort Algorithm:
 Take the first element in unsorted portion
