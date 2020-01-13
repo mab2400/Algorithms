@@ -1,4 +1,6 @@
-#include "sort.h"
+# include <stdio.h>
+# include <stdlib.h>
+# include "sort.h"
 
   void print_array(int a[], size_t size)
   {
